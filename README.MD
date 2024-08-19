@@ -43,10 +43,10 @@ After run the app, you can see the endpoints on link:
 ### 1 - Entities
  - User - Wallet owners. It didn't implemented authentication and authorization
  - Wallet - For manager the Wallet data 
- - Transaction - For manager the transactions from Deposit, withdraw and transfers.
+ - Transaction - For manager the transactions like deposit, withdraw and transfers.
 ### 2 - Resources
  - User Resource - It has some services about users:
-   - List all users;
+   - 1 List all users;
    - Create a user;
  - Wallet Resource - It has all requested functional requirements:
    - Create Wallet - Create a wallet for a user; 
@@ -62,10 +62,23 @@ After run the app, you can see the endpoints on link:
    - Bean Validations on the requests;
    - Create a Controller Advice and two simple exceptions.
 
-### 5 - Compromises or trade-offs made due to time constraints.
+## Compromises or trade-offs made due to time constraints.
    - It didn't create a entity for Transfer. A transfer was mapped like one debit transaction on destination wallet and one credit transaction on the origin wallet.
    - Controler Advice could create a more detailed error pattern for the user.
    - Unit Tests
    - Some Database other than H2
    - Authentication and Authorization
    - Non-functional requirements
+
+## Time Tracking
+| Task Name                                | Spent time (hours) |
+|------------------------------------------|--------------------|
+| Create Spring Boot Project               | 0.5h               |
+| Map the Entities and create Repositories | 1.5h               |
+| Create User Resource and your services   | 1h                 |
+| Create Wallet Resource and your services | 2.5h               |
+| Create Controller Advice and Exceptions  | 0.5h               |
+| Create Class to load data on database    | 0.5h               |
+| Configure Swagger                        | 0.5h               |
+| Explorer Tests on Swagger                | 1h                 |
+| Publish code on github and write Readme  | 1h                 |
