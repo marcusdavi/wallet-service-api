@@ -94,7 +94,7 @@ public class WalletService {
         fromWallet.withdraw(request.amount());
         saveTransaction(fromWallet, request.amount(), TransactionType.CREDIT);
 
-        toWallet.withdraw(request.amount());
+        toWallet.deposit(request.amount());
         saveTransaction(toWallet, request.amount(), TransactionType.DEBIT);
     }
 
