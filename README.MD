@@ -24,9 +24,9 @@ One user is inserted when the app run. You can use it for the create a wallet, b
 After run the app, you can see the endpoints on link:
 - http://localhost:8080/api/swagger-ui/index.html
 
-## Details about implementation
+## Details about implementation and Design
 ### 1 - Entities
- - User - Wallet owners. It didn't implemented authentication and autorization
+ - User - Wallet owners. It didn't implemented authentication and authorization
  - Wallet - For manager the Wallet data 
  - Transaction - For manager the transactions from Deposit, withdraw and transfers.
 ### 2 - Resources
@@ -46,3 +46,9 @@ After run the app, you can see the endpoints on link:
    - Verify if Wallet Balance is enough before of the debit;
    - Bean Validations on the requests;
    - Create a Controller Advice and two simple exceptions.
+
+### 5 - Compromises or trade-offs made due to time constraints.
+   - Controler Advice could create a more detailed error pattern for the user.
+   - Unit Tests
+   - Some Database other than H2
+   - Authentication and Authorization
