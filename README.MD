@@ -68,3 +68,4 @@ After run the app, you can see the endpoints on link:
    - Unit Tests
    - Some Database other than H2
    - Authentication and Authorization
+   - Non-functional requirements
