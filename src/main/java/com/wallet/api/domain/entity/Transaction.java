@@ -32,12 +32,11 @@ public class Transaction {
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
-    public Transaction(BigDecimal amount, Wallet wallet, TransactionType transactionType) {
+    public Transaction(BigDecimal amount, Wallet wallet, TransactionType transactionType, LocalDateTime transactionDate) {
         this.wallet = wallet;
         this.balanceAfter = wallet.getCurrentBalance();
         this.amount = amount;
-        this.transactionDate = LocalDateTime.now();
+        this.transactionDate = transactionDate;
         this.transactionType = transactionType;
     }
-
 }

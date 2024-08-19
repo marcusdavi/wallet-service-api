@@ -9,16 +9,31 @@
 - clone repository
 - open in your favourite IDE
 - run as spring boot app
+- Access swagger and run the services
 
-## Important
-One user is inserted when the app run. You can use it for the create a wallet, but if you prefer I created a service to add users:
-  ```
+### Important
+Some data is inserted when the app run to help tests about historic. Since all operations will be performed on the same day, I adjusted it to have a wallet with ID 1 created on 2024/08/15 with a balance of 1000.00. Having a deposit at 2024/08/17 of 100.00 and a withdraw at 2024/08/19 of 200.00.  
+- User
+```
   {
     "id": 1,
     "name": "Marcus"
     "email": "marcus@testes.com"    
     }
   ``` 
+- Wallet
+```
+  {
+    "id": 1,
+    "userId": 1
+    "balance": 1000.00    
+    }
+  ```
+
+- Transactions
+  - Deposit 100.00 at 2024/08/17: Balance in this date ==> 1100.00
+  - Withdraw 200.00 at 2024/08/19: Balance in this date ==> 900.00
+
 
 ## Swagger
 After run the app, you can see the endpoints on link:
@@ -35,10 +50,10 @@ After run the app, you can see the endpoints on link:
    - Create a user;
  - Wallet Resource - It has all requested functional requirements:
    - Create Wallet - Create a wallet for a user; 
-   - Retrieve Balance and Historic - Unique Service for that. If the date is provided, it will take the end-of-day balance for that date. If it is not provided, it will take the current balance;
+   - Retrieve Balance and Historic - Unique Service for that. If the date (format YYYY-MM-DD) is provided, it will take the end-of-day balance for that date. If it is not provided, it will take the current balance;
    - Deposit - Enable users to deposit money into their wallets;
    - Withdraw - Enable users to withdraw money from their wallet;
-   - Transfer - Facilitate the transfer of money between user wallets. It didn't create a entity for that. A transfer was mapped like one debit transaction on destination wallet and one credit transaction on the origin wallet.
+   - Transfer - Facilitate the transfer of money between user wallets. 
    
 ### 4 - Validations
    - Verify if User exists before of the create a User or before of the create Wallet; 
@@ -48,6 +63,7 @@ After run the app, you can see the endpoints on link:
    - Create a Controller Advice and two simple exceptions.
 
 ### 5 - Compromises or trade-offs made due to time constraints.
+   - It didn't create a entity for Transfer. A transfer was mapped like one debit transaction on destination wallet and one credit transaction on the origin wallet.
    - Controler Advice could create a more detailed error pattern for the user.
    - Unit Tests
    - Some Database other than H2

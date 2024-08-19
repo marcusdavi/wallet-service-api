@@ -37,7 +37,7 @@ public class WalletService {
         // Checks if user exists
         User user = findUser(request.userId());
 
-        Wallet wallet = new Wallet(user, request.initialBalance());
+        Wallet wallet = new Wallet(user, request.initialBalance(), LocalDateTime.now());
         return WalletResponse.build(walletRepository.save(wallet));
     }
 
@@ -101,7 +101,7 @@ public class WalletService {
     private Wallet saveTransaction(Wallet wallet, BigDecimal request, TransactionType credit) {
         wallet = walletRepository.save(wallet);
 
-        Transaction transaction = new Transaction(request, wallet, credit);
+        Transaction transaction = new Transaction(request, wallet, credit, LocalDateTime.now());
         transactionRepository.save(transaction);
         return wallet;
     }
