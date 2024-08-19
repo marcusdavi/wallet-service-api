@@ -63,9 +63,8 @@ After run the app, you can see the endpoints on link:
    - Create a Controller Advice and two simple exceptions.
 
 ## Compromises or trade-offs made due to time constraints.
-   - It didn't create a entity for Transfer. A transfer was mapped like one debit transaction on destination wallet and one credit transaction on the origin wallet.
-   - Controler Advice could create a more detailed error pattern for the user.
-   - Unit Tests
+   - It didn't create a entity for Transfer. A transfer was mapped like one credit transaction on destination wallet and one debit transaction on the origin wallet.
+   - Unit and Integration Tests
    - Some Database other than H2
    - Authentication and Authorization
    - Non-functional requirements
